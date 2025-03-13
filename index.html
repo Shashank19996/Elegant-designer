@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant Designer - Interior Design Excellence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/App.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background-color: #f8f8f8;
+    }
+    
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1rem 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 2rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: #3498db;
+    }
+    
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 0 1rem;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-in;
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      animation: fadeIn 1.5s ease-in;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      animation: fadeIn 2s ease-in;
+    }
+    
+    .btn:hover {
+      background-color: #2980b9;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    section {
+      padding: 5rem 10%;
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      position: relative;
+    }
+    
+    h2:after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background-color: #3498db;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .service-content {
+      padding: 1.5rem;
+    }
+    
+    .service-content h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 300px;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.7);
+      overflow: hidden;
+      width: 100%;
+      height: 0;
+      transition: .5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .gallery-item:hover .overlay {
+      height: 100%;
+    }
+    
+    .overlay-text {
+      color: white;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .about-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #2980b9;
+    }
+    
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 300px;
+    }
+    
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.7);
+      overflow: hidden;
+      width: 100%;
+      height: 0;
+      transition: .5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+      height: 100%;
+    }
+    
+    .portfolio-info {
+      color: white;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Elegant Designer</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Elegant Designer</h1>
+    <p>Transforming spaces into extraordinary experiences through thoughtful design and timeless elegance.</p>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80" alt="Residential Design">
+        <div class="service-content">
+          <h3>Residential Design</h3>
+          <p>We create personalized living spaces that reflect your unique style and meet functional needs. Our residential design services include space planning, furniture selection, color consultation, and custom solutions for every room.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80" alt="Commercial Design">
+        <div class="service-content">
+          <h3>Commercial Design</h3>
+          <p>Our commercial design services create productive, inspiring workspaces that align with your brand identity. We focus on efficient space utilization, employee comfort, and creating impressive environments for clients and visitors.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80" alt="Design Consultation">
+        <div class="service-content">
+          <h3>Design Consultation</h3>
+          <p>Get expert advice from our seasoned designers for your space. Our consultation services offer professional insights, design direction, and actionable ideas to elevate your project, whether big or small.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Our Work</h2>
+    <p class="section-subtitle">Some of our recent projects that showcase our expertise and creativity.</p>
+    
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="src/images/portfolio1.jpg.jpg" alt="Interior Design Project 1">
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h3>Modern Living Room</h3>
+            <p>Complete renovation and styling of a contemporary living space.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <img src="src/images/portfolio2.jpg.jpg" alt="Interior Design Project 2">
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h3>Luxury Bedroom</h3>
+            <p>Custom design and implementation for a master bedroom suite.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <img src="src/images/portfolio3.jpg.jpg" alt="Interior Design Project 3">
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h3>Office Space</h3>
+            <p>Corporate office redesign focusing on productivity and aesthetics.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <img src="src/images/portfolio5.jpg.jpg" alt="Interior Design Project 4">
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h3>Kitchen Remodel</h3>
+            <p>Complete kitchen transformation with custom cabinetry and premium finishes.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <img src="src/images/portfolio4.jpg.png" alt="Interior Design Project 5">
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h3>Outdoor Living</h3>
+            <p>Patio and garden design for seamless indoor-outdoor living.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <img src="src/images/portfolio6.jpg.jpg" alt="Interior Design Project 6">
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h3>Commercial Space</h3>
+            <p>Retail store interior design focusing on customer experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about-container">
+      <div class="about-text">
+        <p>Founded in 2024 by Er. Shashank Shrivastava (M.Tech) and Er. Vishal Shrivastava (M.Tech), Elegant Designer has established itself as a premier interior and exterior design firm known for creating sophisticated, functional, and personalized spaces. Our team of passionate designers combines creativity with technical expertise to deliver exceptional results for every client.</p>
+        <p>We believe that great design should be accessible to everyone and that your space should tell your unique story. Whether we're designing a cozy family home or a dynamic corporate office, we approach each project with the same level of dedication and attention to detail.</p>
+        <p>Our collaborative process ensures that your vision is at the heart of every decision we make. From concept to completion, we're committed to exceeding your expectations and creating spaces that inspire and delight.</p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80" alt="Design Team">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-form">
+      <form id="contactForm" action="https://formspree.io/f/xdkeovnn" method="POST">
+        <input type="hidden" name="_subject" value="New Contact from Elegant Designer Website">
+        <input type="hidden" name="_next" value="thanks.html">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone (Optional)</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="form-message" style="margin-top: 20px;"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Elegant Designer. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Handle form submission feedback
+      const contactForm = document.getElementById('contactForm');
+      const formMessage = document.getElementById('form-message');
+      
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          formMessage.textContent = 'Sending your message...';
+          formMessage.style.color = '#3498db';
+          
+          // The form will now be handled by Formspree
+          // This is just for user feedback before redirect
+          setTimeout(function() {
+            // This may not execute if Formspree redirects quickly
+            formMessage.textContent = 'Thank you! Your message has been sent.';
+            formMessage.style.color = 'green';
+          }, 1000);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
